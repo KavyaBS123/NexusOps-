@@ -1,227 +1,111 @@
-<img src="./assets/web-ui.png" alt="Browser Use Web UI" width="full"/>
+# 🚀 Build Your Own Free AI Browser Agent
 
-<br/>
+Tired of doing the same stuff online? Wish you had a helper that could surf the web for you? You can book flights. You can apply for jobs. You can do research, all without lifting a finger. OpenAI's Operator tries to do this. But it costs $200 a month! Plus, it can't go to all websites. It's not the best deal.
 
-[![GitHub stars](https://img.shields.io/github/stars/browser-use/web-ui?style=social)](https://github.com/browser-use/web-ui/stargazers)
-[![Discord](https://img.shields.io/discord/1303749220842340412?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://link.browser-use.com/discord)
-[![Documentation](https://img.shields.io/badge/Documentation-📕-blue)](https://docs.browser-use.com)
-[![WarmShao](https://img.shields.io/twitter/follow/warmshao?style=social)](https://x.com/warmshao)
+But guess what? You can build a better tool. It's free. It can go to almost any website. This article will show you how to make your own AI Browser Agent. It's a super tool that uses AI to do almost anything you do online.
 
-This project builds upon the foundation of the [browser-use](https://github.com/browser-use/browser-use), which is designed to make websites accessible for AI agents.
+Get ready to see how powerful AI can be. Change how you use the internet! Let's get started.
 
-We would like to officially thank [WarmShao](https://github.com/warmshao) for his contribution to this project.
+[20a73ab68c0abed3f9e64eadab34fb29 (1).webm](https://github.com/user-attachments/assets/46363392-2fbd-4c17-8fbf-ebf884a2d930)
 
-**WebUI:** is built on Gradio and supports most of `browser-use` functionalities. This UI is designed to be user-friendly and enables easy interaction with the browser agent.
+---
 
-**Expanded LLM Support:** We've integrated support for various Large Language Models (LLMs), including: Google, OpenAI, Azure OpenAI, Anthropic, DeepSeek, Ollama etc. And we plan to add support for even more models in the future.
 
-**Custom Browser Support:** You can use your own browser with our tool, eliminating the need to re-login to sites or deal with other authentication challenges. This feature also supports high-definition screen recording.
+## 🤖 Understanding AI Browser Agents and Their Potential
 
-**Persistent Browser Sessions:** You can choose to keep the browser window open between AI tasks, allowing you to see the complete history and state of AI interactions.
+### What is an AI Browser Agent?
+Think of an AI Browser Agent as a robot. It lives inside your computer. This robot can do things for you online:
+- Fill out forms.
+- Click buttons.
+- Shop for you.
 
-<video src="https://github.com/user-attachments/assets/56bc7080-f2e3-4367-af22-6bf2245ff6cb" controls="controls">Your browser does not support playing this video!</video>
+AI Browser Agents make using the web easy. They do the boring stuff so you don't have to!
 
-## Installation Guide
+### How AI Browser Agents Work: A Simplified Explanation
+The AI looks at the website's code (HTML) and figures out:
+- Where are the buttons?
+- Where are the text boxes?
+- What actions to take?
 
-### Prerequisites
-- Python 3.11 or higher
-- Git (for cloning the repository)
+### Use Cases: Real-World Applications of AI Browser Agents
+- Book flights and hotels for your next trip.
+- Apply for jobs in seconds.
+- Do research for school or work.
+- Buy stuff online.
+- Keep up with the news.
 
-### Option 1: Local Installation
+---
 
-Read the [quickstart guide](https://docs.browser-use.com/quickstart#prepare-the-environment) or follow the steps below to get started.
+## 🛠 Setting Up Your Development Environment
 
-#### Step 1: Clone the Repository
-```bash
-git clone https://github.com/browser-use/web-ui.git
-cd web-ui
+### Installing Browser Use and WebUI
+You need two tools:
+- **Browser Use**: The brain of your agent.
+- **WebUI**: The interface to interact with the agent.
+
+You can install them in two ways:
+- **Docker**: Isolated but requires setup.
+- **Local Installation**: Easier but may conflict with other software.
+
+Local Installation is recommended. Here's how:
+
+```sh
+# 1. Clone the repository
+git clone https://github.com/your-username/ai-browser-agent.git
+cd ai-browser-agent
+
+# 2. Install Dependencies
+npm install
+## ⚙️ Configuration
+
+### WebUI Settings
+- **Steps Limit**: How many actions the AI can take in one session.
+- **Browser Appearance**: Customize the look of the browser window.
+- **Recording**: Enable or disable activity recording.
+
+---
+
+## 🔗 LLM Integration
+
+### Choosing the Right LLM
+- **Gemini 2.5 Flash**: Fast and versatile.
+- **Llama**: Free and efficient.
+- **DeepSeek**: Best for complex tasks.
+
+### API Keys
+Obtain API keys from the following providers:
+- **[Grok](https://grok.com)**: Sign up and create an API key.
+- **[Google AI Studio](https://ai.google.com)**: Get your API key.
+- **[Cluster AI](https://clusterai.com)**: Sign up and generate an API key.
 ```
+### Add API Keys
+Create a `.env` file in the root directory:
 
-#### Step 2: Set Up Python Environment
-We recommend using [uv](https://docs.astral.sh/uv/) for managing the Python environment.
-
-Using uv (recommended):
-```bash
-uv venv --python 3.11
+```env
+GROK_API_KEY=your_grok_api_key
+GOOGLE_AI_KEY=your_google_ai_key
+CLUSTER_AI_KEY=your_cluster_ai_key
 ```
+## 🚀 Usage
 
-Activate the virtual environment:
-- Windows (Command Prompt):
-```cmd
-.venv\Scripts\activate
+### 1. Start the Application
+
+```sh
+npm start
 ```
-- Windows (PowerShell):
-```powershell
-.\.venv\Scripts\Activate.ps1
+### 2. Open in Browser  
+Visit [http://localhost:3000](http://localhost:3000) to access the WebUI.
+
+### 3. Enter a Command  
+Example:
+
+```vbnet
+Search a boat headphone for me on Amazon.
 ```
-- macOS/Linux:
-```bash
-source .venv/bin/activate
-```
-
-#### Step 3: Install Dependencies
-Install Python packages:
-```bash
-uv pip install -r requirements.txt
-```
-
-Install Playwright:
-```bash
-playwright install
-```
-
-#### Step 4: Configure Environment
-1. Create a copy of the example environment file:
-- Windows (Command Prompt):
-```bash
-copy .env.example .env
-```
-- macOS/Linux/Windows (PowerShell):
-```bash
-cp .env.example .env
-```
-2. Open `.env` in your preferred text editor and add your API keys and other settings
-
-### Option 2: Docker Installation
-
-#### Prerequisites
-- Docker and Docker Compose installed
-  - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (For Windows/macOS)
-  - [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) (For Linux)
-
-#### Installation Steps
-1. Clone the repository:
-```bash
-git clone https://github.com/browser-use/web-ui.git
-cd web-ui
-```
-
-2. Create and configure environment file:
-- Windows (Command Prompt):
-```bash
-copy .env.example .env
-```
-- macOS/Linux/Windows (PowerShell):
-```bash
-cp .env.example .env
-```
-Edit `.env` with your preferred text editor and add your API keys
-
-3. Run with Docker:
-```bash
-# Build and start the container with default settings (browser closes after AI tasks)
-docker compose up --build
-```
-```bash
-# Or run with persistent browser (browser stays open between AI tasks)
-CHROME_PERSISTENT_SESSION=true docker compose up --build
-```
+### 4. Watch the AI in Action!  
+- The AI Browser Agent navigates to Amazon.  
+- It searches for boat headphones.  
+- It presents the best options—all automatically!
 
 
-4. Access the Application:
-- Web Interface: Open `http://localhost:7788` in your browser
-- VNC Viewer (for watching browser interactions): Open `http://localhost:6080/vnc.html`
-  - Default VNC password: "youvncpassword"
-  - Can be changed by setting `VNC_PASSWORD` in your `.env` file
 
-## Usage
-
-### Local Setup
-1.  **Run the WebUI:**
-    After completing the installation steps above, start the application:
-    ```bash
-    python webui.py --ip 127.0.0.1 --port 7788
-    ```
-2. WebUI options:
-   - `--ip`: The IP address to bind the WebUI to. Default is `127.0.0.1`.
-   - `--port`: The port to bind the WebUI to. Default is `7788`.
-   - `--theme`: The theme for the user interface. Default is `Ocean`.
-     - **Default**: The standard theme with a balanced design.
-     - **Soft**: A gentle, muted color scheme for a relaxed viewing experience.
-     - **Monochrome**: A grayscale theme with minimal color for simplicity and focus.
-     - **Glass**: A sleek, semi-transparent design for a modern appearance.
-     - **Origin**: A classic, retro-inspired theme for a nostalgic feel.
-     - **Citrus**: A vibrant, citrus-inspired palette with bright and fresh colors.
-     - **Ocean** (default): A blue, ocean-inspired theme providing a calming effect.
-   - `--dark-mode`: Enables dark mode for the user interface.
-3.  **Access the WebUI:** Open your web browser and navigate to `http://127.0.0.1:7788`.
-4.  **Using Your Own Browser(Optional):**
-    - Set `CHROME_PATH` to the executable path of your browser and `CHROME_USER_DATA` to the user data directory of your browser. Leave `CHROME_USER_DATA` empty if you want to use local user data.
-      - Windows
-        ```env
-         CHROME_PATH="C:\Program Files\Google\Chrome\Application\chrome.exe"
-         CHROME_USER_DATA="C:\Users\YourUsername\AppData\Local\Google\Chrome\User Data"
-        ```
-        > Note: Replace `YourUsername` with your actual Windows username for Windows systems.
-      - Mac
-        ```env
-         CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-         CHROME_USER_DATA="/Users/YourUsername/Library/Application Support/Google/Chrome"
-        ```
-    - Close all Chrome windows
-    - Open the WebUI in a non-Chrome browser, such as Firefox or Edge. This is important because the persistent browser context will use the Chrome data when running the agent.
-    - Check the "Use Own Browser" option within the Browser Settings.
-5. **Keep Browser Open(Optional):**
-    - Set `CHROME_PERSISTENT_SESSION=true` in the `.env` file.
-
-### Docker Setup
-1. **Environment Variables:**
-   - All configuration is done through the `.env` file
-   - Available environment variables:
-     ```
-     # LLM API Keys
-     OPENAI_API_KEY=your_key_here
-     ANTHROPIC_API_KEY=your_key_here
-     GOOGLE_API_KEY=your_key_here
-
-     # Browser Settings
-     CHROME_PERSISTENT_SESSION=true   # Set to true to keep browser open between AI tasks
-     RESOLUTION=1920x1080x24         # Custom resolution format: WIDTHxHEIGHTxDEPTH
-     RESOLUTION_WIDTH=1920           # Custom width in pixels
-     RESOLUTION_HEIGHT=1080          # Custom height in pixels
-
-     # VNC Settings
-     VNC_PASSWORD=your_vnc_password  # Optional, defaults to "vncpassword"
-     ```
-
-2. **Platform Support:**
-   - Supports both AMD64 and ARM64 architectures
-   - For ARM64 systems (e.g., Apple Silicon Macs), the container will automatically use the appropriate image
-
-3. **Browser Persistence Modes:**
-   - **Default Mode (CHROME_PERSISTENT_SESSION=false):**
-     - Browser opens and closes with each AI task
-     - Clean state for each interaction
-     - Lower resource usage
-
-   - **Persistent Mode (CHROME_PERSISTENT_SESSION=true):**
-     - Browser stays open between AI tasks
-     - Maintains history and state
-     - Allows viewing previous AI interactions
-     - Set in `.env` file or via environment variable when starting container
-
-4. **Viewing Browser Interactions:**
-   - Access the noVNC viewer at `http://localhost:6080/vnc.html`
-   - Enter the VNC password (default: "vncpassword" or what you set in VNC_PASSWORD)
-   - Direct VNC access available on port 5900 (mapped to container port 5901)
-   - You can now see all browser interactions in real-time
-
-5. **Container Management:**
-   ```bash
-   # Start with persistent browser
-   CHROME_PERSISTENT_SESSION=true docker compose up -d
-
-   # Start with default mode (browser closes after tasks)
-   docker compose up -d
-
-   # View logs
-   docker compose logs -f
-
-   # Stop the container
-   docker compose down
-   ```
-
-## Changelog
-- [x] **2025/01/26:** Thanks to @vvincent1234. Now browser-use-webui can combine with DeepSeek-r1 to engage in deep thinking!
-- [x] **2025/01/10:** Thanks to @casistack. Now we have Docker Setup option and also Support keep browser open between tasks.[Video tutorial demo](https://github.com/browser-use/web-ui/issues/1#issuecomment-2582511750).
-- [x] **2025/01/06:** Thanks to @richard-devbot. A New and Well-Designed WebUI is released. [Video tutorial demo](https://github.com/warmshao/browser-use-webui/issues/1#issuecomment-2573393113).
