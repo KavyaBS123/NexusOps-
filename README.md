@@ -64,6 +64,7 @@ npm install
 - **Recording**: Enable or disable activity recording.
 
 ---
+```
 
 ## 🔗 LLM Integration
 
